@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/world_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始" />
+
+        <Button
+            android:id="@+id/world_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单步" />
+
+        <Button
+            android:id="@+id/world_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂停" />
+
+        <Button
+            android:id="@+id/world_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重启" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/world_width"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:hint="宽度"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/world_height"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:hint="高度"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/world_speed"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:hint="速度>0"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/world_rate"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:hint="存活率1-100"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/world_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. 如果一个细胞周围有(下面选择的)个细胞为生，则该细胞的生死状态保持不变"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/tv_left1"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+
+            <com.guyj.BidirectionalSeekBar
+                android:id="@+id/bSeekBar1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                app:ball_left_solid_color="@android:color/white"
+                app:ball_left_stroke_color="@android:color/black"
+                app:ball_radius_size="8dp"
+                app:ball_right_solid_color="@android:color/holo_green_light"
+                app:ball_right_stroke_color="@android:color/holo_green_dark"
+                app:ball_stroke_size="1dp"
+                app:pb_height="3dp"
+                app:pb_within_color="@android:color/holo_blue_bright"
+                app:pb_without_color="@android:color/holo_red_light"
+                app:text_left_num="0"
+                app:text_min_unit="1"
+                app:text_right_num="8" />
+
+            <TextView
+                android:id="@+id/tv_right1"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. 如果一个细胞周围有(下面选择的)个细胞为生，则该细胞为生，即该细胞若原先为死，则转为生，若原先为生，则保持不变；"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/tv_left2"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+
+            <com.guyj.BidirectionalSeekBar
+                android:id="@+id/bSeekBar2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                app:ball_left_solid_color="@android:color/white"
+                app:ball_left_stroke_color="@android:color/black"
+                app:ball_radius_size="8dp"
+                app:ball_right_solid_color="@android:color/holo_green_light"
+                app:ball_right_stroke_color="@android:color/holo_green_dark"
+                app:ball_stroke_size="1dp"
+                app:pb_height="3dp"
+                app:pb_within_color="@android:color/holo_blue_bright"
+                app:pb_without_color="@android:color/holo_red_light"
+                app:text_left_num="0"
+                app:text_min_unit="1"
+                app:text_right_num="8" />
+
+            <TextView
+                android:id="@+id/tv_right2"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.luren.lifegame.LifeGame
+                android:id="@+id/life_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </HorizontalScrollView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
